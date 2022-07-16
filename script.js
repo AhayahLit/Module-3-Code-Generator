@@ -1,9 +1,11 @@
-document.querySelector("button")
-.addEventListener("click", function (){
-    var  = document.querySelector("input");
-    console.log(searchValue.value);
-    if (searchValue.value == "") { 
-    alert("Please Enter a City");
-    }  
-    weather.fetchWeather(searchValue.value); 
-})
+var generateBtn = document.querySelector("#generate");
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+generateBtn.addEventListener("click", writePassword);
