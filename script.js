@@ -6,14 +6,28 @@ let UpperCase= ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 
 function generatePassword() {
     var passwordLength= prompt("What is the length of the password?");
-console.log(passwordLength);
-if (passwordLength < 8 || passwordLength > 128) {
-alert("Invalid Password count");
-return;
+    var password = calcPassword(passwordLength)
+    console.log(passwordLength);
+    if (passwordLength < 8 || passwordLength > 128) {
+        alert("Invalid Password count");
+        return;
     }
 }
-function prompt(question) {
-    let response= prompt(question).tolowercase();
+
+function calcPassword(passwordLength) {
+    do {
+        var useNumbers= prompt("Would you like to use numbers in your password? (y or n or yes or no)");
+        var useLowerCase= prompt("Would you like to use lower case letters? (y or n or yes or no)");
+        var useUpperCase= prompt("Would you like to use upper case letters? (y or n or yes or no)");
+        var useSymbols= prompt("Would you like to use symbols? (y or n or yes or no)");
+        if(!useNumbers && !useLowerCase && !useUpperCase && !useSymbols); {
+            alert("Please choose a method to generate your password");
+        }
+    } while(!useNumbers && !useLowerCase && !useUpperCase && !useSymbols);
+    console.log(useNumbers)
+    console.log(useLowerCase)
+    console.log(useUpperCase)
+    console.log(useSymbols)
     do {
         if (response === "y" || "yes") {
             return true;
@@ -27,28 +41,25 @@ function prompt(question) {
     } while (true);
 }
      
-do {
-    useNumbers= prompt("Would you like to use numbers in your password? (y or n or yes or no)");
-    useLowerCase= prompt("Would you like to use lower case letters? (y or n or yes or no)");
-    useUpperCase= prompt("Would you like to use upper case letters? (y or n or yes or no)");
-    useSymbols= prompt("Would you like to use symbols? (y or n or yes or no)");
-    if(!Numbers && !useLowerCase && !UpperCase && !Symbols);
-    alert("Please choose a method to generate your password");
-}
 
 let passArray= [];
-    if (useNumbers) {
+    if (Numbers) {
         passArray.splice(0,0,...Numbers);
     } 
-    if (useLowerCase) {
-        passArray.splice(0,0...LowerCase);
+    if (LowerCase) {
+        passArray.splice(0,0,...LowerCase);
     }
-    if (useUpperCase) {
-        passArray.splice(0,0...UpperCase);
+    if (UpperCase) {
+        passArray.splice(0,0,...UpperCase);
     }
-    if (useSymbols) {
-        passArray.splice(0,0...Symbols);
+    if (Symbols) {
+        passArray.splice(0,0,...Symbols);
     }
+    let password= " ";
+    for (i=0; i <=length; i++) {    
+    let randomNum= Math.floor(Math.random() * passArray.length);
+    password += passArray[randomNum];
+}
 
 function writePassword() {
   var password = generatePassword()
